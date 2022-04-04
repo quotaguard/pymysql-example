@@ -10,11 +10,8 @@ import socks
 try:
     QG_ENVVAR = os.environ['QUOTAGUARDSTATIC_URL']
 except KeyError:
-    try:
-        QG_ENVVAR = os.environ['QUOTAGUARDSHIELD_URL']
-    except KeyError:
-        print("Missing QUOTAGUARDSTATIC_URL and QUOTAGUARDSHIELD_URL. Exiting")
-        exit(1)
+    print("Missing QUOTAGUARDSTATIC_URL. Exiting")
+    exit(1)
 
 QG_PORT = 1080
 QG_USER, QG_PASS, QG_HOST = re.split(r"[:@\/]", QG_ENVVAR)[3:-1]
